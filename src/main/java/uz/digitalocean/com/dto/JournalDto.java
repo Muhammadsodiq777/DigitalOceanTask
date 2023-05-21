@@ -8,4 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class JournalDto {
+
+    private String name;
+
 }

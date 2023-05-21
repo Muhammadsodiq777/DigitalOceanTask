@@ -8,4 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UniversityDto {
+
+    private String name;
+
 }

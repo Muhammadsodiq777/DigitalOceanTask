@@ -8,4 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class MarksDto {
+
+    private String name;
+
 }

@@ -8,4 +8,7 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class GroupDto {
+
+    private String name;
+
 }
