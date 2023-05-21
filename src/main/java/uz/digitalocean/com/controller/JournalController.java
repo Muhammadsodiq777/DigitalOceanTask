@@ -8,7 +8,7 @@ import uz.digitalocean.com.dto.JournalDto;
 import uz.digitalocean.com.service.JournalService;
 
 @RestController
-@RequestMapping("/v1/student")
+@RequestMapping("/v1/journal")
 @RequiredArgsConstructor
 public class JournalController {
 
@@ -36,6 +36,11 @@ public class JournalController {
     @DeleteMapping("/delete/{journalId}")
     public ResponseEntity<?> deleteJournal(@PathVariable(name = "journalId") Long journalId) {
         return new ResponseEntity<>(service.deleteJournal(journalId), HttpStatus.OK);
+    }
+
+    @PostMapping("/add/subject-to-journal")
+    public ResponseEntity<?> deleteJournal(@RequestParam Long subjectId, @RequestParam Long journalId) {
+        return new ResponseEntity<>(service.addSubjectToJournal(subjectId, journalId), HttpStatus.OK);
     }
     
 }

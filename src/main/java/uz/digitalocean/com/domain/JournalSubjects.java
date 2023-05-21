@@ -1,15 +1,13 @@
 package uz.digitalocean.com.domain;
 
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.Index;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.digitalocean.com.domain.base.BaseEntity;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -17,7 +15,12 @@ import uz.digitalocean.com.domain.base.BaseEntity;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "JOURNAL_SUBJECTS", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
-public class JournalSubjects extends BaseEntity<String> {
+public class JournalSubjects {
+
+    @Id
+    @Column(name = "ID", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "JOURNAL_ID")
     private Long journalId;
@@ -27,4 +30,10 @@ public class JournalSubjects extends BaseEntity<String> {
 
     @Column(name = "IS_ACTIVE", nullable = false)
     private Integer isActive; // 1 active | 0 not active
+
+    @Column(name = "CREATED_AT",updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(name = "UPDATED_AT")
+    private LocalDateTime updatedAt;
 }

@@ -13,4 +13,6 @@ public class StudentDto {
 
     private String name;
 
+    private Long groupId;
+
 }

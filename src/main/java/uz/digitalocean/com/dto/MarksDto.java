@@ -9,6 +9,7 @@ import lombok.*;
 @NoArgsConstructor
 public class MarksDto {
 
+    private Long id;
     private String name;
 
 }

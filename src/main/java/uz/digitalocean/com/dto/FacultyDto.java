@@ -9,6 +9,10 @@ import lombok.*;
 @NoArgsConstructor
 public class FacultyDto {
 
+    private Long id;
+
+    private Long universityId;
+
     private String name;
 
 }

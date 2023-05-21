@@ -9,6 +9,8 @@ import lombok.*;
 @NoArgsConstructor
 public class JournalDto {
 
+    private Long id;
     private String name;
+    private Long groupId;
 
 }

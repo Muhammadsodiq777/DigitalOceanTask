@@ -6,9 +6,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.digitalocean.com.domain.base.BaseEntity;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -16,7 +15,12 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "UNIVERSITY", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
-public class University extends BaseEntity<String> {
+public class University {
+
+    @Id
+    @Column(name = "ID", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "NAME", nullable = false, length = 100)
     private String name;
@@ -26,6 +30,12 @@ public class University extends BaseEntity<String> {
 
     @Column(name = "IS_ACTIVE")
     private Integer isActive = 1; // 1 active | 0 not active
+
+    @Column(name = "CREATED_AT",updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(name = "UPDATED_AT")
+    private LocalDateTime updatedAt;
 
 //    @OneToMany(mappedBy = "FACULTY")
 //    private List<Faculty> faculties;

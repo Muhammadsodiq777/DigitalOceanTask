@@ -1,4 +1,4 @@
-package uz.digitalocean.com.dto;
+package uz.digitalocean.com.dto.response;
 
 import lombok.*;
 
@@ -7,10 +7,10 @@ import lombok.*;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class GroupDto {
+public class FacultyResponseDto {
 
     private Long id;
-    private Long facultyId;
+    private Long universityId;
     private String name;
-    private Integer year;
+
 }

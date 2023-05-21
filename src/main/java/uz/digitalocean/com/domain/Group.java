@@ -2,9 +2,8 @@ package uz.digitalocean.com.domain;
 
 import jakarta.persistence.*;
 import lombok.*;
-import uz.digitalocean.com.domain.base.BaseEntity;
 
-import java.util.List;
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -12,12 +11,17 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "GROUP", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
-public class Group extends BaseEntity<String> {
+public class Group {
+
+    @Id
+    @Column(name = "ID", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "NAME", nullable = false, length = 100)
     private String name;
 
-    @Column(name = "YEAR")
+    @Column(name = "GR_YEAR")
     private Integer year;
 
     @Column(name = "IS_ACTIVE", nullable = false)
@@ -25,6 +29,12 @@ public class Group extends BaseEntity<String> {
 
     @Column(name = "FACULTY_ID")
     private Long facultyId;
+
+    @Column(name = "CREATED_AT",updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(name = "UPDATED_AT")
+    private LocalDateTime updatedAt;
 
 //    @ManyToOne
 //    @JoinColumn(name = "STUDENT_ID")

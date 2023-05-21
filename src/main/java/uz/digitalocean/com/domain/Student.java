@@ -5,7 +5,8 @@ import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-import uz.digitalocean.com.domain.base.BaseEntity;
+
+import java.time.LocalDateTime;
 
 @Getter
 @Setter
@@ -13,7 +14,12 @@ import uz.digitalocean.com.domain.base.BaseEntity;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name = "STUDENT", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
-public class Student extends BaseEntity<String> {
+public class Student {
+
+    @Id
+    @Column(name = "ID", unique = true, nullable = false, updatable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
     @Column(name = "NAME", nullable = false, length = 100)
     private String name;
@@ -23,6 +29,12 @@ public class Student extends BaseEntity<String> {
 
     @Column(name = "GROUP_ID", nullable = false)
     private Long groupId;
+
+    @Column(name = "CREATED_AT",updatable = false)
+    private LocalDateTime createdAt = LocalDateTime.now();
+
+    @Column(name = "UPDATED_AT")
+    private LocalDateTime updatedAt;
 
   //  @OneToMany(mappedBy = "GROUP")
 //    private List<Group> group;
