@@ -12,7 +12,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import uz.digitalocean.com.domain.StudentMarks;
 import uz.digitalocean.com.domain.base.BaseEntity;
 
-public interface StudentMarksRepository extends JpaRepository<StudentMarks,Long> {
+public interface StudentMarksRepository extends JpaRepository<StudentMarks, Long> {
 }
 
 

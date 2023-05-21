@@ -1,6 +1,9 @@
 package uz.digitalocean.com.domain;
 
-import jakarta.persistence.*;
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Index;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,20 +15,17 @@ import uz.digitalocean.com.domain.base.BaseEntity;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "STUDENT", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
-public class Student extends BaseEntity<String> {
+@Table(name = "STUDENT_MARKS", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
+public class StudentMarks extends BaseEntity<String> {
 
-    @Column(name = "NAME", nullable = false, length = 100)
-    private String name;
+    @Column(name = "MARKS_ID", nullable = false)
+    private Long markId;
+
+    @Column(name = "STUDENT_ID", nullable = false)
+    private Long studentId;
 
     @Column(name = "IS_ACTIVE", nullable = false)
     private Integer isActive; // 1 active | 0 not active
-
-    @Column(name = "GROUP_ID", nullable = false)
-    private Long groupId;
-
-  //  @OneToMany(mappedBy = "GROUP")
-//    private List<Group> group;
 }
 
 
