@@ -37,4 +37,9 @@ public class GroupController {
     public ResponseEntity<?> deleteGroup(@PathVariable(name = "groupId") Long groupId) {
         return new ResponseEntity<>(service.deleteGroup(groupId), HttpStatus.OK);
     }
+
+    @GetMapping("/get/groups/with-student-count/{facultyId}")
+    public ResponseEntity<?> getGroupsWithStudentCount(@PathVariable(name = "facultyId") Long facultyId) {
+        return new ResponseEntity<>(service.getGroupsWithStudentCount(facultyId), HttpStatus.OK);
+    }
 }

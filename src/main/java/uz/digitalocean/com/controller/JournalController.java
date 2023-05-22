@@ -39,7 +39,7 @@ public class JournalController {
     }
 
     @PostMapping("/add/subject-to-journal")
-    public ResponseEntity<?> deleteJournal(@RequestParam Long subjectId, @RequestParam Long journalId) {
+    public ResponseEntity<?> addSubjectToJournal(@RequestParam Long subjectId, @RequestParam Long journalId) {
         return new ResponseEntity<>(service.addSubjectToJournal(subjectId, journalId), HttpStatus.OK);
     }
     

@@ -18,5 +18,5 @@ public interface JournalService {
 
     ResponseDataDto<String> deleteJournal(Long id);
 
-    ResponseDataDto<String> addSubjectToJournal(Long subjectId, Long journalId)
+    ResponseDataDto<String> addSubjectToJournal(Long subjectId, Long journalId);
 }

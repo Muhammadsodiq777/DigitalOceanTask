@@ -10,7 +10,7 @@ import java.time.LocalDateTime;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "GROUP", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
+@Table(name = "UNV_GROUP", indexes = {@Index(name = "uniqueIndex", columnList = "ID", unique = true)})
 public class Group {
 
     @Id

@@ -4,6 +4,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import uz.digitalocean.com.domain.Faculty;
 import uz.digitalocean.com.domain.Group;
+import uz.digitalocean.com.domain.custom.GroupStudentCustomDto;
 import uz.digitalocean.com.dto.GroupDto;
 import uz.digitalocean.com.dto.response.FacultyResponseDto;
 import uz.digitalocean.com.dto.response.GroupResponseDto;
@@ -105,5 +106,13 @@ public class GroupServiceImpl implements GroupService {
 
         repository.save(group);
         return new ResponseDataDto<>(true, 1, "success", "Group is deleted");
+    }
+
+    @Override
+    public ResponseDataDto<List<GroupStudentCustomDto>> getGroupsWithStudentCount(Long facultyId){
+        List<GroupStudentCustomDto> studentCountByFacultyId = repository.getGroupAndStudentCountByFacultyId(facultyId);
+        if (studentCountByFacultyId.isEmpty())
+            return new ResponseDataDto<>(false, -1, "fail", null);
+        return new ResponseDataDto<>(true, 1, "success", studentCountByFacultyId);
     }
 }

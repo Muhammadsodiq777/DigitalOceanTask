@@ -37,4 +37,30 @@ public class StudentController {
     public ResponseEntity<?> deleteStudent(@PathVariable(name = "studentId") Long studentId) {
         return new ResponseEntity<>(service.deleteStudent(studentId), HttpStatus.OK);
     }
+
+    @PostMapping("/add/subject-to-student")
+    public ResponseEntity<?> addSubjectToStudent(@RequestParam Long studentId, @RequestParam Long subjectId) {
+        return new ResponseEntity<>(service.addSubjectToStudent(studentId, subjectId), HttpStatus.OK);
+    }
+
+    @PostMapping("/put/marks-to-student")
+    public ResponseEntity<?> putMarkToStudent(@RequestParam Long studentId, @RequestParam Long markId) {
+        return new ResponseEntity<>(service.putMarkToStudent(studentId, markId), HttpStatus.OK);
+    }
+
+    @PostMapping("/get/student-subjects/{studentId}")
+    public ResponseEntity<?> getStudentSubjects(@PathVariable(name = "studentId") Long studentId) {
+        return new ResponseEntity<>(service.getStudentSubjects(studentId), HttpStatus.OK);
+    }
+
+    @PostMapping("/get/student/full-info/{groupId}")
+    public ResponseEntity<?> getStudentMarksByGroupId(@PathVariable(name = "groupId") Long groupId) {
+        return new ResponseEntity<>(service.getStudentMarksByGroupId(groupId), HttpStatus.OK);
+    }
+
+    @PostMapping("/get/student-subjects/{name}")
+    public ResponseEntity<?> searchUser(@PathVariable(name = "name") String name) {
+        return new ResponseEntity<>(service.searchUser(name), HttpStatus.OK);
+    }
+
 }
